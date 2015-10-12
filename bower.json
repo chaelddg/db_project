@@ -1,9 +1,7 @@
 {
-  "name": "db_project",
+  "name": "php_project",
   "version": "0.0.1",
-  "authors": [
-    "chael.ddg <chael.ddg@gmail.com>"
-  ],
+  "authors": [],
   "description": "",
   "main": "",
   "moduleType": [],
@@ -15,5 +13,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "flat-ui": "~2.2.2"
+  }
 }

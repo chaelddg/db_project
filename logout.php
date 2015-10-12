@@ -1,22 +1,20 @@
 <?php include('./includes/header.php'); ?>
 
     <div class="container">
-        <?php
-            session_start();
+        <div class="row">
+            <div class="col-lg-12">
+               <h1>You have logged out</h1>
+               <hr>
+               <?php
+                   session_start();
 
-            session_destroy();
+                   session_destroy();
 
-            $uri_array = explode("/", $_SERVER['REQUEST_URI']);
-            $uri_link = [];
+                   echo "<a href='index.php'>Click To Login</a>";
 
-            for ($i=0; $i < sizeof($uri_array) - 1; $i++) {
-                array_push($uri_link, $uri_array[$i]);
-            }
-
-            $link_redirect = implode("/",$uri_link) . "/index.php";
-            header('Location: '.$link_redirect);
-
-         ?>
+                ?>
+            </div>
+        </div>
     </div>
 
 <?php include('./includes/footer.php'); ?>
