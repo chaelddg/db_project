@@ -24,7 +24,7 @@
     if (isset($_SESSION['username'])) {
         $id = $_GET['id'];
 
-        $query = $db->query("SELECT * FROM JOB_ORDERS J,SERVICES S , INVOICES I WHERE I.CustNo ='$id' AND J.InvoiceNo = I.InvoiceNo AND J.ServiceNo= S.ServiceNo");
+        $query = $db->query("SELECT * FROM JOB_ORDERS J,SERVICES S , INVOICES I WHERE jobNO ='$id' AND J.InvoiceNo = I.InvoiceNo AND J.ServiceNo= S.ServiceNo");
 
         echo "<h1>" . $id . "</h1>";
         echo "<table id='customer_account_table' class='table'>";
