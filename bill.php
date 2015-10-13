@@ -101,6 +101,19 @@
                                 <header class="panel-heading primary">
                                    
                                 </header>
+                                <div class="row">
+                                 <div class="col-md-6"></div>
+                                 <div class="col-md-6">
+                                       <div class="form-group">
+                                        <label class="col-sm-2 control-label"> Date</label>
+                                        <div class="col-sm-10">
+                                            <input type="date" class="form-control" name="amount" placeholder="mm/dd/yy" required="required" />
+                                        </div>  
+                                  </div>
+
+                                  </div>
+                                </div>
+                               
                                 <div class="form-group">
                                     <label for="">Mode of Payment</label>
                                      <select class="form-control" required = "required">
@@ -114,8 +127,7 @@
                                         <label class="col-sm-2 control-label"> Amount Tendered</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" name="amount" placeholder="0.00" required="required" />
-                                        </div>
-                                    
+                                        </div>  
                                   </div>
                                   </div>
                               </section>
