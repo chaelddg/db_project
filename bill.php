@@ -101,7 +101,8 @@
     if (isset($_SESSION['username'])) {
         $id = $_GET['id'];
 
-        $query = $db->query("SELECT    I.CustNo, C.CustCompanyName, I.InvoiceDate,I.InvoiceDesc,I.TotalDue,I.BalanceAmt, I.Discount  FROM  INVOICES I, JOB_ORDERS J,SERVICES S, CUSTOMERS C  WHERE I.CustNo ='$id' AND J.InvoiceNo = I.InvoiceNo AND J.ServiceNo= S.ServiceNo AND C.CustNo = I.CustNo");
+        $query = $db->query("SELECT * FROM  INVOICES I, JOB_ORDERS J,SERVICES S, CUSTOMERS C  WHERE jobNO ='$id' AND J.InvoiceNo = I.InvoiceNo AND J.ServiceNo= S.ServiceNo 
+            AND I.CustNo = C.CustNo");
 
    
         while ($r = $query->fetch()) {
