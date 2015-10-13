@@ -3,8 +3,15 @@
 
 <div class="container">
 
-    <h3>Customer Lists</h3>
-    <hr>
+   
+    <div class="row">
+              <div class="col-lg-12">
+                <h3 class="page-header"><i class="fa fa-laptop"></i> Customer Lists</h3>
+                <ol class="breadcrumb">
+                  <li><i class="fa fa-home"></i><a href="index.php">Home</a></li>
+                  <li><i class="fa fa-laptop"></i>Customer List</li>
+                </ol>
+              </div>
 
     <table id="customer_table">
         <thead>
@@ -20,10 +27,10 @@
 
             <?php
 
-                $query = $db->query("SELECT * FROM CUSTOMERS C , INVOICES I WHERE C.CustNo = I.CustNo AND BalanceAmt != '0'");
+                 $query = $db->query("SELECT * FROM CUSTOMERS C , INVOICES I WHERE C.CustNo = I.CustNo AND BalanceAmt != '0'");
 
-                while ($r = $query->fetch()) {
-                    echo "<tr>";
+                 while ($r = $query->fetch()) {
+                     echo "<tr>";
                         echo "<td><a href='view.php?id=" . $r['CustNo'] . "'>". $r['CustNo'] ."</a></td>";
                         echo "<td>" . $r['CustCompanyName'] . '</td>';
                         echo "<td>" . $r['ContactPerson'] . '</td>';
@@ -31,8 +38,8 @@
                         echo "<td>" . $r['InvoiceDate'] . '</td>';
                     echo "</tr>" . "\n";
                 }
-
-             ?>
+           
+                             ?>
         </tbody>
     </table>
 
