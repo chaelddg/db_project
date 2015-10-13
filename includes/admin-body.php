@@ -3,7 +3,7 @@
 
 <div class="container">
 
-   
+
     <div class="row">
               <div class="col-lg-12">
                 <h3 class="page-header"><i class="fa fa-laptop"></i> Customer Lists</h3>
@@ -27,7 +27,7 @@
 
             <?php
 
-                 $query = $db->query("SELECT * FROM CUSTOMERS C , INVOICES I WHERE C.CustNo = I.CustNo AND BalanceAmt != '0'");
+                 $query = $db->query("SELECT * FROM customers C , invoices I WHERE C.CustNo = I.CustNo AND BalanceAmt != '0'");
 
                  while ($r = $query->fetch()) {
                      echo "<tr>";
@@ -38,7 +38,7 @@
                         echo "<td>" . $r['InvoiceDate'] . '</td>';
                     echo "</tr>" . "\n";
                 }
-           
+
                              ?>
         </tbody>
     </table>

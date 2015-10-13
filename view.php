@@ -9,13 +9,13 @@
 
 <div class="container">
    <div class="row">
-              <div class="col-lg-12">
-                <h3 class="page-header"><i class="fa fa-laptop"></i> Job Orders</h3>
-                <ol class="breadcrumb">
-                  <li><i class="fa fa-home"></i><a href="index.php">Home</a></li>
-                  <li><i class="fa fa-laptop"></i>Job Orders</li>
-                </ol>
-              </div>
+        <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-laptop"></i> Job Orders</h3>
+            <ol class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="index.php">Home</a></li>
+                <li><i class="fa fa-laptop"></i>Job Orders</li>
+            </ol>
+      </div>
 
 
 <?php
@@ -24,7 +24,7 @@
     if (isset($_SESSION['username'])) {
         $id = $_GET['id'];
 
-        $query = $db->query("SELECT * FROM JOB_ORDERS J,SERVICES S , INVOICES I WHERE I.CustNo ='$id' AND J.InvoiceNo = I.InvoiceNo AND J.ServiceNo= S.ServiceNo");
+        $query = $db->query("SELECT * FROM job_orders J,services S , invoices I WHERE I.CustNo ='$id' AND J.InvoiceNo = I.InvoiceNo AND J.ServiceNo= S.ServiceNo");
 
         echo "<h1>" . $id . "</h1>";
         echo "<table id='customer_account_table' class='table'>";

@@ -13,7 +13,7 @@
             die();
         }
 
-        $query = $db->query("SELECT * FROM USERS WHERE username='$username'");
+        $query = $db->query("SELECT * FROM users WHERE username='$username'");
 
         $numrows = $query->rowCount();
 

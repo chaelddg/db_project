@@ -11,8 +11,8 @@
 
    <div class="row">
    <h3 class="page-header"><i class="fa fa-laptop"></i> Bills</h3>
-              
-                
+
+
                    <div class="col-lg-12">
                 <div class="panel">
                   <div class="panel-body">
@@ -45,7 +45,7 @@
                         <div class="col-lg-12">
                             <section class="panel">
                                 <header class="panel-heading primary">
-                                   
+
                                 </header>
                                 <div class="row">
                                  <div class="col-md-6"></div>
@@ -54,12 +54,12 @@
                                         <label class="col-sm-2 control-label"> Date</label>
                                         <div class="col-sm-10">
                                             <input type="date" class="form-control" name="amount" placeholder="mm/dd/yy" required="required" />
-                                        </div>  
+                                        </div>
                                   </div>
 
                                   </div>
                                 </div>
-                               
+
                                 <div class="form-group">
                                     <label for="">Mode of Payment</label>
                                      <select class="form-control" required = "required">
@@ -67,13 +67,13 @@
                                       <option>INSTALLMENT</option>
                                     </select>
                                   </div>
-                                   
+
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label"> Amount Tendered</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" name="amount" placeholder="0.00" required="required" />
-                                        </div>  
+                                        </div>
                                   </div>
                                   </div>
                               </section>
@@ -94,39 +94,39 @@
     <h3 class="panel-title">Bill Summary</h3>
       </div>
       <div class="panel-body primary">
-       
+
 <?php
 
 
     if (isset($_SESSION['username'])) {
         $id = $_GET['id'];
 
-        $query = $db->query("SELECT * FROM  INVOICES I, JOB_ORDERS J,SERVICES S, CUSTOMERS C  WHERE I.CustNo ='$id' AND J.InvoiceNo = I.InvoiceNo AND J.ServiceNo= S.ServiceNo AND C.CustNo = I.CustNo");
+        $query = $db->query("SELECT * FROM  invoices I, job_orders J,services S, customers C  WHERE I.CustNo ='$id' AND J.InvoiceNo = I.InvoiceNo AND J.ServiceNo= S.ServiceNo AND C.CustNo = I.CustNo");
 
-   
+
         while ($r = $query->fetch()) {
-              echo "<div class='row'>";  
-              echo "<div class='col-lg-6'>Customer No:".$id."</div>";  
-              echo "<div class='col-lg-6'>Customer Name: ".$r['CustCompanyName']."</div>";   
-              echo "<div class='col-lg-6'>Date Invoiced: ".$r['InvoiceDate']."</div>";    
-              echo "<div class='col-lg-6'>Invoice Description: ".$r['InvoiceDesc']."</div>";    
-              echo "<div class='col-lg-6'>Total Due:<b> ".$r['TotalDue']."</b></div>";    
+              echo "<div class='row'>";
+              echo "<div class='col-lg-6'>Customer No:".$id."</div>";
+              echo "<div class='col-lg-6'>Customer Name: ".$r['CustCompanyName']."</div>";
+              echo "<div class='col-lg-6'>Date Invoiced: ".$r['InvoiceDate']."</div>";
+              echo "<div class='col-lg-6'>Invoice Description: ".$r['InvoiceDesc']."</div>";
+              echo "<div class='col-lg-6'>Total Due:<b> ".$r['TotalDue']."</b></div>";
               echo "</div>";
-              echo "<div class='row'>";  
+              echo "<div class='row'>";
               echo "<div class='col-lg-6'>Balance Amount: <b>". $r['BalanceAmt']."</b></div>";
- 
+
               echo "</div>";
-              echo "<div class='row'>";  
-              echo "<div class='col-lg-6'>Discount : <b>". $r['Discount']."</b></div>"; 
+              echo "<div class='row'>";
+              echo "<div class='col-lg-6'>Discount : <b>". $r['Discount']."</b></div>";
               echo "<div class='col-lg-6'>";
               echo "<div class='panel panel-primary'>";
               echo " <div class='panel-heading'>Payments :</div>";
-              echo " <div class='panel-body'>";   
+              echo " <div class='panel-body'>";
               echo "</div>";
               echo "</div>";
-              echo"</div>"; 
+              echo"</div>";
               echo "</div>";
-              echo "<div class='row'>";  
+              echo "<div class='row'>";
               echo "</div>";
 
         }
@@ -151,7 +151,7 @@
     if (isset($_SESSION['username'])) {
         $id = $_GET['id'];
 
-        $query = $db->query("SELECT * FROM JOB_ORDERS J,SERVICES S , INVOICES I WHERE I.CustNo ='$id' AND J.InvoiceNo = I.InvoiceNo AND J.ServiceNo= S.ServiceNo");
+        $query = $db->query("SELECT * FROM job_orders J,services S , invoices I WHERE I.CustNo ='$id' AND J.InvoiceNo = I.InvoiceNo AND J.ServiceNo= S.ServiceNo");
 
     } else {
         $uri_array = explode("/", $_SERVER['REQUEST_URI']);
