@@ -105,7 +105,6 @@
                                     <label for="">Mode of Payment</label>
                                      <select class="form-control" required = "required">
                                       <option>CASH</option>
-                                      <option>CHECK</option>
                                       <option>INSTALLMENT</option>
                                     </select>
                                   </div>
