@@ -103,7 +103,6 @@
 
         $query = $db->query("SELECT * FROM  invoices I, job_orders J,services S, customers C  WHERE I.CustNo ='$id' AND J.InvoiceNo = I.InvoiceNo AND J.ServiceNo= S.ServiceNo AND C.CustNo = I.CustNo");
 
-
         while ($r = $query->fetch()) {
               echo "<div class='row'>";
               echo "<div class='col-lg-6'>Customer No:".$id."</div>";
