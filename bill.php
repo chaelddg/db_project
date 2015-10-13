@@ -32,11 +32,22 @@
               echo "<div class='col-lg-6'>Total Due:<b> ".$r['TotalDue']."</b></div>";    
               echo "</div>";
               echo "<div class='row'>";  
-              echo "<div class='col-lg-6'>Balance Amount: <b>". $r['BalanceAmt']."</b></div>"; 
+              echo "<div class='col-lg-6'>Balance Amount: <b>". $r['BalanceAmt']."</b></div>";
+ 
               echo "</div>";
               echo "<div class='row'>";  
               echo "<div class='col-lg-6'>Discount : <b>". $r['Discount']."</b></div>"; 
+              echo "<div class='col-lg-6'>";
+              echo "<div class='panel panel-primary'>";
+              echo " <div class='panel-heading'>Payments :</div>";
+              echo " <div class='panel-body'>";   
               echo "</div>";
+              echo "</div>";
+              echo"</div>"; 
+              echo "</div>";
+              echo "<div class='row'>";  
+              echo "</div>";
+
         }
     } else {
         $uri_array = explode("/", $_SERVER['REQUEST_URI']);
@@ -61,7 +72,7 @@
                   <div class="panel-body">
                     Actions:
                       &nbsp;&nbsp;&nbsp;
-                      <button class="btn btn-primary" data-toggle="modal" href="#addBookModal">
+                      <button class="btn btn-primary" data-toggle="modal" href="#addModal">
                         <i class="fa fa-plus"> Make Payment</i>
                       </button>
                   </div>
@@ -74,47 +85,39 @@
                 </ol>
               </div>
 
-<!-- ADD BOOK MODAL -->
-      <div class="modal fade" id="addBookModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- ADD Payment MODAL -->
+      <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
               <div class="modal-content">
                   <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title">Add History Book</h4>
+                      <h4 class="modal-title">Make Payment</h4>
                   </div>
                   <form method="POST" action="/addNewHistoryBook">
                     <div class="modal-body">
                         <div class="row">
                         <div class="col-lg-12">
                             <section class="panel">
-                                <header class="panel-heading">
-                                   Fiil Up Details
+                                <header class="panel-heading primary">
+                                   
                                 </header>
+                                <div class="form-group">
+                                    <label for="">Mode of Payment</label>
+                                     <select class="form-control" required = "required">
+                                      <option>CASH</option>
+                                      <option>CHECK</option>
+                                      <option>INSTALLMENT</option>
+                                    </select>
+                                  </div>
+                                   
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label">Title</label>
+                                        <label class="col-sm-2 control-label"> Amount Tendered</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="title" placeholder="Title" required="required" />
+                                            <input type="text" class="form-control" name="amount" placeholder="0.00" required="required" />
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label">ISBN</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="isbn" placeholder="ISBN" required="required" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label">Author</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="author" placeholder="Author" required="required" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label">Quantity</label>
-                                        <div class="col-sm-10">
-                                          <input type="number" min="1" class="form-control" name="qty" placeholder="Quantity" required="required" />
-                                        </div>
-                                    </div>
+                                    
+                                  </div>
                                   </div>
                               </section>
                          </div>
