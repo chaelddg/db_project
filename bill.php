@@ -8,60 +8,6 @@
 <?php include('./includes/nav-header.php') ?>
 
 <div class="container">
-<div class="panel panel-primary">
- <div class="panel-heading">
-    <h3 class="panel-title">Bill Summary</h3>
-      </div>
-      <div class="panel-body primary">
-       
-<?php
-
-
-    if (isset($_SESSION['username'])) {
-        $id = $_GET['id'];
-
-        $query = $db->query("SELECT * FROM  INVOICES I, JOB_ORDERS J,SERVICES S, CUSTOMERS C  WHERE I.CustNo ='$id' AND J.InvoiceNo = I.InvoiceNo AND J.ServiceNo= S.ServiceNo AND C.CustNo = I.CustNo");
-
-   
-        while ($r = $query->fetch()) {
-              echo "<div class='row'>";  
-              echo "<div class='col-lg-6'>Customer No:".$id."</div>";  
-              echo "<div class='col-lg-6'>Customer Name: ".$r['CustCompanyName']."</div>";   
-              echo "<div class='col-lg-6'>Date Invoiced: ".$r['InvoiceDate']."</div>";    
-              echo "<div class='col-lg-6'>Invoice Description: ".$r['InvoiceDesc']."</div>";    
-              echo "<div class='col-lg-6'>Total Due:<b> ".$r['TotalDue']."</b></div>";    
-              echo "</div>";
-              echo "<div class='row'>";  
-              echo "<div class='col-lg-6'>Balance Amount: <b>". $r['BalanceAmt']."</b></div>";
- 
-              echo "</div>";
-              echo "<div class='row'>";  
-              echo "<div class='col-lg-6'>Discount : <b>". $r['Discount']."</b></div>"; 
-              echo "<div class='col-lg-6'>";
-              echo "<div class='panel panel-primary'>";
-              echo " <div class='panel-heading'>Payments :</div>";
-              echo " <div class='panel-body'>";   
-              echo "</div>";
-              echo "</div>";
-              echo"</div>"; 
-              echo "</div>";
-              echo "<div class='row'>";  
-              echo "</div>";
-
-        }
-    } else {
-        $uri_array = explode("/", $_SERVER['REQUEST_URI']);
-        $uri_link = [];
-        for ($i=0; $i < sizeof($uri_array) - 1; $i++) {
-            array_push($uri_link, $uri_array[$i]);
-        }
-        $link_redirect = implode("/",$uri_link) . "/index.php";
-        header('Location: '.$link_redirect);
-    }
-
- ?>
-      </div>
-  </div>
 
    <div class="row">
    <h3 class="page-header"><i class="fa fa-laptop"></i> Bills</h3>
@@ -143,6 +89,61 @@
           </div>
       </div>
       </div>
+<div class="panel panel-primary">
+ <div class="panel-heading">
+    <h3 class="panel-title">Bill Summary</h3>
+      </div>
+      <div class="panel-body primary">
+       
+<?php
+
+
+    if (isset($_SESSION['username'])) {
+        $id = $_GET['id'];
+
+        $query = $db->query("SELECT * FROM  INVOICES I, JOB_ORDERS J,SERVICES S, CUSTOMERS C  WHERE I.CustNo ='$id' AND J.InvoiceNo = I.InvoiceNo AND J.ServiceNo= S.ServiceNo AND C.CustNo = I.CustNo");
+
+   
+        while ($r = $query->fetch()) {
+              echo "<div class='row'>";  
+              echo "<div class='col-lg-6'>Customer No:".$id."</div>";  
+              echo "<div class='col-lg-6'>Customer Name: ".$r['CustCompanyName']."</div>";   
+              echo "<div class='col-lg-6'>Date Invoiced: ".$r['InvoiceDate']."</div>";    
+              echo "<div class='col-lg-6'>Invoice Description: ".$r['InvoiceDesc']."</div>";    
+              echo "<div class='col-lg-6'>Total Due:<b> ".$r['TotalDue']."</b></div>";    
+              echo "</div>";
+              echo "<div class='row'>";  
+              echo "<div class='col-lg-6'>Balance Amount: <b>". $r['BalanceAmt']."</b></div>";
+ 
+              echo "</div>";
+              echo "<div class='row'>";  
+              echo "<div class='col-lg-6'>Discount : <b>". $r['Discount']."</b></div>"; 
+              echo "<div class='col-lg-6'>";
+              echo "<div class='panel panel-primary'>";
+              echo " <div class='panel-heading'>Payments :</div>";
+              echo " <div class='panel-body'>";   
+              echo "</div>";
+              echo "</div>";
+              echo"</div>"; 
+              echo "</div>";
+              echo "<div class='row'>";  
+              echo "</div>";
+
+        }
+    } else {
+        $uri_array = explode("/", $_SERVER['REQUEST_URI']);
+        $uri_link = [];
+        for ($i=0; $i < sizeof($uri_array) - 1; $i++) {
+            array_push($uri_link, $uri_array[$i]);
+        }
+        $link_redirect = implode("/",$uri_link) . "/index.php";
+        header('Location: '.$link_redirect);
+    }
+
+ ?>
+      </div>
+  </div>
+
       </div>
 <?php
 
