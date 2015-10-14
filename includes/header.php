@@ -9,6 +9,7 @@
 
         <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="./lib/datatables/media/css/dataTables.bootstrap.css">
+        <link rel="stylesheet" href="./lib/sweetalert/dist/sweetalert.css">
 
         <!-- custom style -->
         <link rel="stylesheet" href="./css/base.css">
