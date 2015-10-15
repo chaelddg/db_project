@@ -7,8 +7,9 @@ $(document).ready(function () {
         .addClass('table table-striped table-bordered');
     $('#customer_account_table')
         .removeClass( 'display' )
-        .addClass('table table-striped table-bordered');    
+        .addClass('table table-striped table-bordered');
     $('#bill_summary')
         .removeClass( 'display' )
         .addClass('table table-striped table-bordered');
+
 });
